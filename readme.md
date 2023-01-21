@@ -8,6 +8,7 @@
 * **`"/registro"`** -> `Solo la empresa instaladora (nosotros)`
     * Para el registro será necesaria nuestra intervención, ya que un usuario no debería darse de alta por su cuenta, puesto que nosotros somos los que hacemos la instalación del hardware en cada máquina y por tanto somos los que lo damos de alta
 ---
+* **`"/"`** Página principal de la aplicación. 
 * **`"/maquinas"`**
     * Lista de todas las máquinas de los que dispone el usuario junto a la id y ubicación.
     * La MAC de la placa ESP8266 podría actuar como la **id** de la máquina junto a alguna referencia interna que use la empresa.

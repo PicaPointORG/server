@@ -9,6 +9,7 @@
 * **`"/registro"`** -> `Solo la empresa instaladora (nosotros)`
     * Para el registro será necesaria nuestra intervención, ya que un usuario no debería darse de alta por su cuenta, puesto que nosotros somos los que hacemos la instalación del hardware en cada máquina y por tanto somos los que lo damos de alta
 * **`"/"`** Página principal de la aplicación. 
+---
 * **`"/maquinas"`**
     * Lista de todas las máquinas de los que dispone el usuario junto a la id y ubicación.
     * La MAC de la placa ESP8266 podría actuar como la **id** de la máquina junto a alguna referencia interna que use la empresa.
@@ -20,6 +21,7 @@
     * El usuario podrá consultar el catalogo de todos sus productos completos, identificados por su id interno, de los que irá reabasteciendo cada máquina.
 * **`"/productos/{idProducto}"`**
     * Según la id interna de cada producto perteneciente a la empresa, se podrá consultar su precio, peso, los alergenos si se desea y cualquier información adicional al producto en si.
+
 ---
 
 ### - _POST_

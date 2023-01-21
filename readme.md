@@ -38,7 +38,7 @@
     * `"/add"`
         * Se agrega producto nuevo a una máquina en concreto
     * `"/update"`
-        * Cada vez que se realice la venta o compra de productos pertenecientes a esta máquina, esta ruta se encargará de actualizar el stock de la base de datos restando o sumando la cantidad disponible de dicho producto a la máquina
+        * Cada vez que se realice la venta o abastecimiento de productos pertenecientes a esta máquina, esta ruta se encargará de restar o sumar al stock disponible del producto.
     * `"/delete"`
 ---
 * **`"/productos"`**

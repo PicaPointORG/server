@@ -18,7 +18,7 @@ public class Maquina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "ubicacion", nullable = false, length = 45)
+    @Column(name = "ubicacion", nullable = false, length = 400)
     private String ubicacion;
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.MERGE)
     @JoinColumn(name = "empresa_cif", nullable = false)

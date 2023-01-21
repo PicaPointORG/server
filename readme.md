@@ -1,7 +1,8 @@
 # API del servidor
 
-## ***Peticiones***
 > Se identificará la máquina según la MAC de la placa ESPxx que envia la petición
+
+## ***Peticiones***
 
 ### - _GET_
 ---

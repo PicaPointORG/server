@@ -30,11 +30,11 @@
 ---
 * **`"/maquinas"`**
     * `"/add"` -> `Solo la empresa instaladora (nosotros)`
-    * `"/update"`
+    * `"/{id}/update"`
         * En el caso de que se requiera actualizar alguna información relacionada con la máquina como su ubicación.
-    * `"/delete"` -> `Solo la empresa instaladora (nosotros)`
+    * `"/{id}/delete"` -> `Solo la empresa instaladora (nosotros)`
 ---
-* **`"maquinas/stock"`**
+* **`"maquinas/{id}/stock"`**
     * `"/add"`
         * Se agrega producto nuevo a una máquina en concreto
     * `"/update"`
@@ -44,7 +44,7 @@
 * **`"/productos"`**
     * `"/add"`
         * Únicamente se usará para agregar productos nuevos en la empresa que antes no estaban.
-    * `"/update"`
-    * `"/delete"`
+    * `"/{id}/update"`
+    * `"/{id}/delete"`
     * En el caso de que la empresa ya no haga uso de algún producto en nínguna de sus máquinas, estas pueden ser borradas.
 ---

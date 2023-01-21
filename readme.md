@@ -20,6 +20,7 @@
     * El usuario podrá consultar el catalogo de todos sus productos completos, identificados por su id interno, de los que irá reabasteciendo cada máquina.
 * **`"/productos/{idProducto}"`**
     * Según la id interna de cada producto perteneciente a la empresa, se podrá consultar su precio, peso, los alergenos si se desea y cualquier información adicional al producto en si.
+
 ---
 
 ### - _POST_

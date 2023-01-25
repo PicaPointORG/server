@@ -4,7 +4,7 @@
 
 ## ***Peticiones***
 
-### - _GET_
+### - _GETo_
 ---
 * **`"/login"`**
 * **`"/registro"`** -> `Solo la empresa instaladora (nosotros)`

@@ -1,8 +1,8 @@
 package picapoint.picapointServer.util;
 
 public enum CustomClaims {
-    USER_NAME("userName"),
-    USER_ROLE("userRole");
+    USER_NAME("username"),
+    USER_ROLE("role");
 
     private final String claim;
 

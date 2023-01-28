@@ -34,6 +34,6 @@ public class Empresa {
 
     @Column(name = "codigo_postal", nullable = false)
     private Integer codigoPostal;
-    @OneToMany(mappedBy = "empresa", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<Maquina> maquinas = new ArrayList<>();
 }

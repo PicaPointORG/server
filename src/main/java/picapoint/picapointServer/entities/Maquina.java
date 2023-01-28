@@ -20,7 +20,7 @@ public class Maquina {
     private Long id;
     @Column(name = "ubicacion", nullable = false, length = 400)
     private String ubicacion;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE)
     @JoinColumn(name = "empresa_cif", nullable = false)
     private Empresa empresa;
     @ManyToMany(cascade = CascadeType.MERGE)

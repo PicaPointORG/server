@@ -10,7 +10,7 @@ public enum CustomClaims {
         this.claim = claim;
     }
 
-    public String getClaim() {
+    public String getValue() {
         return claim;
     }
 }

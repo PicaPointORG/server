@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import picapoint.picapointServer.util.CustomClaims;
+import picapoint.picapointServer.util.AuthorizationCookie;
 import picapoint.picapointServer.util.JwtTokenHandler;
 
 import java.security.NoSuchAlgorithmException;
@@ -24,24 +25,22 @@ public class DefaultInterceptor implements HandlerInterceptor {
         System.out.println("Intercepted: " + request.getRequestURI());
         if (request.getRequestURI().equals("/login")) {
             String token = createToken("admin", "admin");
-            Cookie cookie = new Cookie("Authorization", token);
+            AuthorizationCookie cookie = new AuthorizationCookie(token);
             cookie.setPath("/");
             response.addCookie(cookie);
             return true;
         }
-
         Cookie[] cookies = Optional.ofNullable(request.getCookies()).orElse(new Cookie[0]);
         String token = Arrays.stream(cookies)
-                .filter(cookie -> cookie.getName()
-                        .equals("Authorization"))
-                .findFirst().orElse(new Cookie("empty", null)).getValue();
+                .filter(cookie -> cookie.getName().equals(AuthorizationCookie.NAME))
+                .findFirst().orElse(new AuthorizationCookie(null)).getValue();
         if (token == null) {
             System.out.println("No token");
             response.sendRedirect("/login");
             return false;
         }
-        DecodedJWT validToken = verifyToken(token);
-        if (validToken == null) {
+        DecodedJWT verifiedToken = verifyToken(token);
+        if (verifiedToken == null) {
             System.out.println("Invalid token");
             response.sendRedirect("/login");
             return false;
@@ -62,9 +61,9 @@ public class DefaultInterceptor implements HandlerInterceptor {
     }
 
     private String createToken(String username, String role) throws NoSuchAlgorithmException {
-        return JWT.create().withClaim(CustomClaims.USER_NAME.getClaim(), username)
-                .withClaim(CustomClaims.USER_ROLE.getClaim(), role)
-                .withIssuer("auth0")
+        return JWT.create().withIssuer("auth0")
+                .withClaim(CustomClaims.USER_NAME.getValue(), username)
+                .withClaim(CustomClaims.USER_ROLE.getValue(), role)
                 .sign(JwtTokenHandler.getAlgorithm());
     }
 }

@@ -32,7 +32,7 @@ public class MainController {
     }
 
     @PostMapping("/empresas")
-    public List<Empresa> getEmpresas(HttpServletResponse response) {
+    public List<Empresa> getEmpresas(){
         return empresaService.getAll();
     }
 }

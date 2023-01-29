@@ -36,10 +36,11 @@ public class JWTHandler {
         }
     }
 
-    public static String createToken(String username, String role) throws NoSuchAlgorithmException {
+    public static String createToken(String username, String role, String cif) throws NoSuchAlgorithmException {
         return JWT.create().withIssuer("auth0")
                 .withClaim(CustomClaims.USER_NAME.getValue(), username)
                 .withClaim(CustomClaims.USER_ROLE.getValue(), role)
+                .withClaim(CustomClaims.USER_CIF.getValue(), cif)
                 .sign(getAlgorithm());
     }
 }

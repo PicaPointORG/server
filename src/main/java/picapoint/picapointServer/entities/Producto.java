@@ -25,6 +25,8 @@ public class Producto {
     private String nombre;
     @Column(name = "descripcion", nullable = false, length = 200)
     private String descripcion;
+    @Column(name = "precio", nullable = false)
+    private double precio;
     @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "empresa_cif", referencedColumnName = "cif", nullable = false)

@@ -78,16 +78,16 @@ public class ViewController {
         String cif = JWT.decode(token).getClaim(CustomClaims.USER_CIF.getValue()).asString();
         List<Producto> productos = databaseService.getProductos(cif);
         model.addAttribute("productos", productos);
-        Map<Long, Integer> totalStock = new HashMap<>();
+        Map<Long, Integer> totalStockDeCadaProducto = new HashMap<>();
         for (Producto producto : productos) {
             Integer productStock = producto.getMaquinaHasProductos().stream().reduce(
                     0,
                     (a, b) -> a + b.getStock(),
                     Integer::sum
             );
-            totalStock.put(producto.getId(), productStock);
+            totalStockDeCadaProducto.put(producto.getId(), productStock);
         }
-        model.addAttribute("stock", totalStock);
+        model.addAttribute("stock", totalStockDeCadaProducto);
         return "productos";
     }
 

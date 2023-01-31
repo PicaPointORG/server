@@ -90,4 +90,14 @@ public class ViewController {
         model.addAttribute("stock", totalStock);
         return "productos";
     }
+
+    @GetMapping("/contacto")
+    public String contacto() {
+        return "contacto";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
 }

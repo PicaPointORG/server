@@ -12,11 +12,17 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Optional;
 
+/**
+ * Clase que contiene los métodos para manejar las solicitudes entrantes.
+ */
 public class Middleware {
     /**
-     * Comprueba si el usuario tiene un cookie de autenticación válido
-     * @return verdadero si tiene un cookie de autenticación válido
-     * @throws IOException si la redirección falla
+     * Verifica el token de autenticación en la cookie del usuario.
+     *
+     * @param request La petición HTTP del usuario.
+     * @param response La respuesta HTTP a enviar al usuario.
+     * @return `true` si el token es válido, `false` en caso contrario.
+     * @throws IOException Si ocurre un error al redirigir al usuario.
      */
     public static boolean checkAuthenticationCookie(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Cookie[] cookies = Optional.ofNullable(request.getCookies()).orElse(new Cookie[0]);

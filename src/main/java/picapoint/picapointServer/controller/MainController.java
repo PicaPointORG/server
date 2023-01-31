@@ -1,21 +1,18 @@
 package picapoint.picapointServer.controller;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import picapoint.picapointServer.entities.Login;
-import picapoint.picapointServer.entities.Maquina;
-import picapoint.picapointServer.entities.Producto;
 import picapoint.picapointServer.entities.Usuario;
 import picapoint.picapointServer.service.DatabaseService;
 import picapoint.picapointServer.util.AuthCookie;
-import picapoint.picapointServer.util.CustomClaims;
 import picapoint.picapointServer.util.JWTHandler;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/")

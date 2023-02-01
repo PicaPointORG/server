@@ -1,10 +1,13 @@
 package picapoint.picapointServer.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +21,7 @@ import java.util.List;
 public class Empresa {
     @Id
     @Column(name = "cif", nullable = false, length = 9)
-    private String id;
+    private String cif;
 
     @Column(name = "nombre", nullable = false, length = 200)
     private String nombre;
@@ -34,6 +37,12 @@ public class Empresa {
 
     @Column(name = "codigo_postal", nullable = false)
     private Integer codigoPostal;
+    @JsonManagedReference
     @OneToMany(mappedBy = "empresa", cascade = CascadeType.MERGE)
     private List<Maquina> maquinas = new ArrayList<>();
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "empresa", cascade = CascadeType.MERGE)
+    private List<Producto> productos = new ArrayList<>();
+
 }

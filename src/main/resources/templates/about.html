@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FroggyAgencias</title>
+    <link rel="stylesheet" href="css/globalcss.css">
+    <link rel="icon" href="source/icon.jpg" type="image/icon">
+
+
+</head>
+
+<body>
+<nav>
+    <div class="topnav" id="myTopnav">
+        <a th:href="@{/}" class=" icon"><img class="icon" src="source/icon.jpg" alt="icono"></a>
+        <a th:href="@{/maquinas}" class="inNav">Máquinas</a>
+        <a th:href="@{/productos}" class="inNav">Productos</a>
+        <div class="dropdown">
+            <button class="dropbtn">Otros</button>
+            <div class="dropdown-content">
+                <a th:href="@{/contacto}">Contacto</a>
+                <a th:href="@{/about}" class="selected">Sobre Nosotros</a>
+            </div>
+        </div>
+        <a href="javascript:void(0);" style="font-size:15px;" class="desp" onclick="myFunction()">&#9776;</a>
+    </div>
+</nav>
+<section>
+    <h1>Página de Información</h1>
+    <article>
+        <div class="principal">
+            <h3>Sobre Nosotros</h3>
+            <p>
+                Proyecto de clase creado con fines de estudio por alumnos de el instituto IES Severo Ochoa Elx <br><br>
+            </p>
+            <div class="alumnos">
+                <p>
+                    <a href="https://github.com/pacoalberolaa" target="_blank">Paco Alberola</a> <br><br>
+                    <a href="https://github.com/Ruben1863" target="_blank">Rubén Espínola</a><br><br>
+                    <a href="https://github.com/doqso" target="_blank">Giorgi Gongatze</a><br><br>
+                    <a href="https://github.com/Gabrii-2001" target="_blank">Gabri Diaz</a><br><br>
+                    <a href="https://github.com/JesusGonzalezGs" target="_blank">Jesús González</a><br><br>
+                </p>
+
+            </div>
+        </div>
+        <div class="foto">
+            <img src="/source/pepe.jpg" alt="fotico">
+        </div>
+    </article>
+</section>
+<footer>
+    <a href="#"><img src="/source/flecha-hacia-arriba.png" alt="arriba" style="width: 70px; height: 70px;"></a>
+</footer>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+</body>
+
+</html>

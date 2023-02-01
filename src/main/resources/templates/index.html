@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FroggyAgencias</title>
+    <link rel="stylesheet" href="/css/globalcss.css">
+    <link rel="icon" href="/source/icon.jpg" type="image/icon">
+
+
+</head>
+
+<body>
+<nav>
+    <div class="topnav" id="myTopnav">
+        <a th:href="@{/}" class="icon"><img class="icon" src="source/icon.jpg" alt="icono"></a>
+        <a th:href="@{/maquinas}" class="inNav">Máquinas</a>
+        <a th:href="@{/productos}" class="inNav">Productos</a>
+        <div class="dropdown">
+            <button class="dropbtn">Otros</button>
+            <div class="dropdown-content">
+                <a th:href="@{/contacto}">Contacto</a>
+                <a th:href="@{/about}">Sobre Nosotros</a>
+            </div>
+        </div>
+        <a href="javascript:void(0);" style="font-size:15px;" class="desp" onclick="myFunction()">&#9776;</a>
+    </div>
+</nav>
+<section>
+    <h1>Página de Información</h1>
+    <article>
+        <div class="resumen">
+            <h2>Bienvenido a la pagina de monitoreo de maquinas de PicaPoint SL</h2>
+            <p>
+                Esta es la página de monitoreo de maquinas de PicaPoint S.L. Con esta página pues actualizar y consultar
+                el stock de los productos servidos en cáda una de las máquinas de PicaPoint SL.<br>
+                Cualquier tipo de problema o bug que presente la página puede reportarla mediante el gmail aportado en
+                la página de contacto.
+            </p>
+        </div>
+    </article>
+    <article>
+        <img src="source/equipo.jpeg" style="width: auto;">
+    </article>
+</section>
+<footer>
+    <a href="#"><img src="source/flecha-hacia-arriba.png" alt="arriba" style="width: 70px; height: 70px;"></a>
+</footer>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
+</body>
+
+</html>

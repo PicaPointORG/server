@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicaPoint Máquinas</title>
+    <link rel="stylesheet" th:href="@{/css/globalcss.css}">
+    <link rel="icon" th:href="@{/source/icon.jpg}" type="image/icon">
+
+
+</head>
+
+<body onload="loadId()">
+<nav>
+    <div class="topnav" id="myTopnav">
+        <a th:href="@{/}" class=" icon"><img class="icon" th:src="@{/source/icon.jpg}" alt="icono"></a>
+        <a th:href="@{/maquinas}" class="active">Máquinas</a>
+        <a th:href="@{/productos}" class="inNav">Productos</a>
+        <div class="dropdown">
+            <button class="dropbtn">Otros</button>
+            <div class="dropdown-content">
+                <a th:href="@{/contacto}">Contacto</a>
+                <a th:href="@{/about}">Sobre Nosotros</a>
+            </div>
+        </div>
+        <a href="javascript:void(0);" style="font-size:15px;" class="desp" onclick="myFunction()">&#9776;</a>
+    </div>
+</nav>
+
+<section>
+    <h1>Página de control de Máquinas</h1>
+    <div class="contResumen">
+        <div class="resumen">
+            <h2>Información de la página</h2>
+            <p>
+                Esta página muestra descripciónes e información sobre las maquinas. Si pulsas en cada máquina puedes
+                observar el stock de la máquina.
+            </p>
+        </div>
+    </div>
+    <article th:each="maquina:${maquinas}" class="principal">
+        <h3 th:text="${maquina.id}"></h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor quis orci ut laoreet. Nullam
+            ac metus tempor, scelerisque massa nec, porta neque. Aenean lobortis tristique luctus. Aliquam eget leo
+            tempor, congue neque in, auctor lacus. In interdum facilisis nunc quis venenatis
+        </p>
+        <h2 th:text="${maquina.ubicacion}"></h2>
+        <div class="minimap">
+            <iframe class="mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3140.563671131609!2d-0.9497369999999999!3d38.08054149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd639918a0a9524f%3A0x699a8c2ae099b175!2sC.%20Oriolanos%20Ausentes%2C%204A%2C%2003300%20Orihuela%2C%20Alicante!5e0!3m2!1ses!2ses!4v1653732236919!5m2!1ses!2ses"
+                    width="290" height="290" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </article>
+</section>
+<footer>
+    <a href="#"><img th:src="@{/source/flecha-hacia-arriba.png}" alt="arriba" style="width: 70px; height: 70px;"></a>
+</footer>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    function verMquina(id) {
+
+    }
+
+    function loadId() {
+        for (i = 0; i <= document.getElementsByTagName("article").length; i++) {
+            document.getElementsByTagName("article")[i].id = "maquina" + i
+        }
+    }
+</script>
+</body>
+
+</html>

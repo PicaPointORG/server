@@ -34,7 +34,7 @@ public class MainController {
         AuthCookie cookie = new AuthCookie(token);
         cookie.setPath("/");
         response.addCookie(cookie);
-        System.out.println("Token created");
+        System.out.println("Token createds");
         response.sendRedirect("/");
     }
 }

@@ -221,10 +221,22 @@ div > h2{
   justify-content: center;
   margin-bottom: 50px;
 }
-
+article {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.maquinas{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 50px;
+}
 .principal {
-  
-  min-width: 600px;
+  min-width: 400px;
   max-width: 800px;
   width: auto;
   height: auto;

@@ -2,12 +2,10 @@ package picapoint.picapointServer.service;
 
 import org.springframework.stereotype.Service;
 import picapoint.picapointServer.entities.Maquina;
+import picapoint.picapointServer.entities.MaquinaHasProducto;
 import picapoint.picapointServer.entities.Producto;
 import picapoint.picapointServer.entities.Usuario;
-import picapoint.picapointServer.repository.EmpresaRepository;
-import picapoint.picapointServer.repository.MaquinaRepository;
-import picapoint.picapointServer.repository.ProductoRepository;
-import picapoint.picapointServer.repository.UsuarioRepository;
+import picapoint.picapointServer.repository.*;
 
 import java.util.List;
 
@@ -17,12 +15,14 @@ public class DatabaseService {
     private final ProductoRepository productoRepository;
     private final MaquinaRepository maquinaRepository;
     private final UsuarioRepository usuarioRepository;
+    private final StockRepository stockRepository;
 
-    public DatabaseService(EmpresaRepository empresaRepository, ProductoRepository productoRepository, MaquinaRepository maquinaRepository, UsuarioRepository usuarioRepository) {
+    public DatabaseService(EmpresaRepository empresaRepository, ProductoRepository productoRepository, MaquinaRepository maquinaRepository, UsuarioRepository usuarioRepository, StockRepository stockRepository) {
         this.empresaRepository = empresaRepository;
         this.productoRepository = productoRepository;
         this.maquinaRepository = maquinaRepository;
         this.usuarioRepository = usuarioRepository;
+        this.stockRepository = stockRepository;
     }
     /**
      * Obtiene un usuario dado su nombre de usuario y contraseña.
@@ -63,5 +63,13 @@ public class DatabaseService {
      */
     public List<Producto> getProductos(String cif) {
         return productoRepository.findByEmpresaCif(cif);
+    }
+
+    public Producto getProducto(Long id) {
+        return productoRepository.findById(id).orElse(null);
+    }
+
+    public void updateStock(MaquinaHasProducto mhp) {
+        stockRepository.save(mhp);
     }
 }

@@ -91,6 +91,32 @@ public class ViewController {
         return "productos";
     }
 
+    @GetMapping("/productos/{id}")
+    public String producto(HttpServletResponse response, @PathVariable("id") long id, Model model,
+                           @CookieValue(AuthCookie.NAME) String token) {
+        String cif = JWT.decode(token).getClaim(CustomClaims.USER_CIF.getValue()).asString();
+        Producto producto = databaseService.getProducto(id);
+        if (producto == null) {
+            response.setStatus(404); // Not found
+            return null;
+        } else if (!producto.getEmpresa().getCif().equals(cif)) {
+            response.setStatus(403); // Forbidden
+            return null;
+        }
+        List<Producto> productos = new ArrayList<>();
+        productos.add(producto);
+        model.addAttribute("productos", productos);
+        Map<Long, Integer> totalStockDeCadaProducto = new HashMap<>();
+        Integer productStock = producto.getMaquinaHasProductos().stream().reduce(
+                0,
+                (a, b) -> a + b.getStock(),
+                Integer::sum
+        );
+        totalStockDeCadaProducto.put(producto.getId(), productStock);
+        model.addAttribute("stock", totalStockDeCadaProducto);
+        return "productos";
+    }
+
     @GetMapping("/contacto")
     public String contacto() {
         return "contacto";

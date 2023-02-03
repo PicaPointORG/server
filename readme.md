@@ -42,11 +42,11 @@
 
 ### - _PUT_
 ---
-* **`"/productos/{idProducto}/update"`**
+* **`"/productos/update"`**
     * En el caso de que se requiera actualizar alguna información relacionada con el producto como su precio o peso.
 * **`"/maquinas/{idMaquina}/update"`**
     * En el caso de que se requiera actualizar alguna información relacionada con la máquina como su ubicación.
-* **`"/stock/{idMaquina}/update"`**
+* **`"/stock/update"`**
     * Cada vez que se realice la venta o reabastecimiento de productos pertenecientes a una máquina en concreto, esta ruta se encargará de actualizar el stock disponible del producto en dicha máquina.
 ---
 

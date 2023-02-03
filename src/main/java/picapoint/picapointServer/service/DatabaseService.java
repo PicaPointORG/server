@@ -24,6 +24,7 @@ public class DatabaseService {
         this.usuarioRepository = usuarioRepository;
         this.stockRepository = stockRepository;
     }
+
     /**
      * Obtiene un usuario dado su nombre de usuario y contraseña.
      *
@@ -69,7 +70,26 @@ public class DatabaseService {
         return productoRepository.findById(id).orElse(null);
     }
 
+    // ----------------------------------------- POST -----------------------------------------
+    public void createProducto(Producto producto) {
+        productoRepository.save(producto);
+    }
+
+    // ----------------------------------------- PUT -----------------------------------------
+    public void updateProducto(Producto producto) {
+        productoRepository.save(producto);
+    }
+
+    public void updateMaquina(Maquina maquina) {
+        maquinaRepository.save(maquina);
+    }
+
     public void updateStock(MaquinaHasProducto mhp) {
         stockRepository.save(mhp);
+    }
+
+    // ----------------------------------------- DELETE -----------------------------------------
+    public void deleteProducto(Long id) {
+        productoRepository.deleteById(id);
     }
 }

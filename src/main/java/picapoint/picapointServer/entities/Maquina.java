@@ -23,6 +23,8 @@ public class Maquina {
     private Long id;
     @Column(name = "ubicacion", nullable = false, length = 400)
     private String ubicacion;
+    @Column(name = "mac", nullable = false, length = 17)
+    private String mac;
     @JsonBackReference
     @ManyToOne(optional = false, cascade = CascadeType.MERGE)
     @JoinColumn(name = "empresa_cif", nullable = false)

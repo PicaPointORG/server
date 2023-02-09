@@ -5,4 +5,5 @@ import picapoint.picapointServer.entities.MaquinaHasProducto;
 import picapoint.picapointServer.entities.MaquinaHasProductoId;
 
 public interface StockRepository extends JpaRepository<MaquinaHasProducto, MaquinaHasProductoId> {
+    MaquinaHasProducto findByMaquinaMacAndProductoId(String mac, Long idProducto);
 }

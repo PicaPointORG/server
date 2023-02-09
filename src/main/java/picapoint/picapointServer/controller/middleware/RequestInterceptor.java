@@ -82,6 +82,6 @@ class RequestInterceptorAppConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(defaultInterceptor)
-                .excludePathPatterns("/css/**", "/source/**", "/error", "/favicon.ico", "/login", "/registro", "/iot");
+                .excludePathPatterns("/css/**", "/source/**", "/error", "/favicon.ico", "/login", "/registro", "/maquina/**");
     }
 }

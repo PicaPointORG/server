@@ -42,13 +42,13 @@
     </div>
     <div class="maquinas">
         <div th:each="maquina:${maquinas}" class="principal">
-            <h3 th:text="${maquina.id}"></h3>
-            <h2 th:text="${maquina.ubicacion}"></h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor quis orci ut laoreet. Nullam
-                ac metus tempor, scelerisque massa nec, porta neque. Aenean lobortis tristique luctus. Aliquam eget leo
-                tempor, congue neque in, auctor lacus. In interdum facilisis nunc quis venenatis
-            </p>
+            <div>
+                <h2><a th:text="${maquina.ubicacion}"></a></h2>
+
+                <div class="listaProductosMaquinas" th:each="producto:${maquina.getMaquinaHasProductos()}">
+                    <p th:text="${producto.producto.nombre + ' ' + producto.stock}"></p>
+                </div>
+            </div>
             <div class="minimap">
 
                 <iframe class="mapa"

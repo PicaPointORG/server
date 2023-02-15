@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicaPoint Máquinas</title>
+    <link rel="stylesheet" th:href="@{/css/globalcss.css}">
+    <link rel="icon" href="source/icon.jpg" type="image/icon">
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="topnav" id="myTopnav">
+            <a href="inicio.html" class=" icon" ><img class="icon" src="source/icon.jpg" alt="icono"></a>
+            <a href="#" class="active">Eliminar Empresa</a>
+            <a href="javascript:void(0);" style="font-size:15px;" class="desp" onclick="myFunction()">&#9776;</a>
+          </div>
+    </nav>
+    
+    <section >
+        <h1>Página de dar de baja a empresas</h1>
+        <div class="contResumen">
+            <div class="resumen">
+                <h2>Información de la página</h2>
+                <p>
+                    Esta página es una herramienta de administrador para dar de baja a una empresa.
+                </p>
+            </div>
+        </div>
+        <article >
+            <div>
+                <label for="empresa">Empresa</label>
+                <select name="empresas" id="empresa" style="width: 200px; margin-right: 10px;">
+                    <option value=""></option>
+                </select>
+            </div>
+            
+        <br>
+        <input type="button" value="Dar de baja" class="deletebtn"/>
+        </article>
+    </section>
+    <footer>
+        <a href="#"><img src="source/flecha-hacia-arriba.png" alt="arriba" style="width: 70px; height: 70px;"></a>
+    </footer>
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+
+            
+       
+    </script>
+</body>
+
+</html>

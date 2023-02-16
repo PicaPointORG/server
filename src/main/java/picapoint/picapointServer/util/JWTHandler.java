@@ -36,6 +36,10 @@ public class JWTHandler {
         }
     }
 
+    public static String getCifFromToken(String token) {
+        return JWT.decode(token).getClaim(CustomClaims.USER_CIF.getValue()).asString();
+    }
+
     public static String createToken(String username, String role, String cif) throws NoSuchAlgorithmException {
         return JWT.create().withIssuer("auth0")
                 .withClaim(CustomClaims.USER_NAME.getValue(), username)

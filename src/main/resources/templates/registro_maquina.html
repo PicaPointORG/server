@@ -1,0 +1,42 @@
+<!-- Define que el documento esta bajo el estandar de HTML 5 -->
+<!doctype html>
+
+<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title> Formulario de Acceso </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    Link hacia el archivo de estilos css-->
+    <link rel="stylesheet" href="/css/maquina.css">
+</head>
+<body onload="consultarError()">
+<div id="contenedor">
+    <div id="central">
+        <div id="maquina">
+            <div class="titulo">
+                Registro Maquina
+            </div>
+            <form th:method="POST" th:object="${maquina}" th:action="@{/registro/maquina}" >
+                <label for="empresa">Empresa</label>
+                <select name="empresa" id="empresa" th:field="*{empresa.cif}">
+                    <option th:each="empresaOpt : ${empresas}" th:text="${empresaOpt.nombre}" th:value="${empresaOpt.cif}"/>
+                </select>
+                <label>Ubicacion</label>
+                <input type="text" th:field="*{ubicacion}" placeholder="Ubicacion" required name="ubicacion" id="ubicacion">
+                <label>Mac</label>
+                <input id = "mac" type="text" th:field="*{mac}" placeholder="MAC" required name="mac">
+
+                <button title="Ingresar" name="Ingresar" onclick="log()">Añadir</button>
+            </form>
+            <div class="pie-form">
+                <a href="#">Cancelar Registro</a>
+            </div>
+            <p id="error"></p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

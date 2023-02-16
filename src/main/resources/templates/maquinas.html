@@ -8,10 +8,7 @@
     <title>PicaPoint Máquinas</title>
     <link rel="stylesheet" th:href="@{/css/globalcss.css}">
     <link rel="icon" th:href="@{/source/icon.jpg}" type="image/icon">
-
-
 </head>
-
 <body>
 <nav>
     <div class="topnav" id="myTopnav">
@@ -28,7 +25,6 @@
         <a href="javascript:void(0);" style="font-size:15px;" class="desp" onclick="myFunction()">&#9776;</a>
     </div>
 </nav>
-
 <section>
     <h1>Página de control de Máquinas</h1>
     <div class="contResumen">
@@ -50,7 +46,6 @@
                 </div>
             </div>
             <div class="minimap">
-
                 <iframe class="mapa"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3140.563671131609!2d-0.9497369999999999!3d38.08054149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd639918a0a9524f%3A0x699a8c2ae099b175!2sC.%20Oriolanos%20Ausentes%2C%204A%2C%2003300%20Orihuela%2C%20Alicante!5e0!3m2!1ses!2ses!4v1653732236919!5m2!1ses!2ses"
                         width="290" height="290" style="border:0;" allowfullscreen="" loading="lazy"
@@ -58,7 +53,6 @@
             </div>
         </div>
     </div>
-
 </section>
 <footer>
     <a href="#"><img th:src="@{/source/flecha-hacia-arriba.png}" alt="arriba" style="width: 70px; height: 70px;"></a>
@@ -72,17 +66,6 @@
             x.className = "topnav";
         }
     }
-
-    function verMquina(id) {
-
-    }
-
-    function loadId() {
-        for (i = 0; i <= document.getElementsByTagName("article").length; i++) {
-            document.getElementsByTagName("article")[i].id = "maquina" + i
-        }
-    }
 </script>
 </body>
-
 </html>

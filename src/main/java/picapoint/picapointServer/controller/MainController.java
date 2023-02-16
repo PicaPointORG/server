@@ -40,14 +40,15 @@ public class MainController {
     }
 
     @PostMapping("/registro/empresa")
-    public void registro(@CookieValue(AuthCookie.NAME) String token, Usuario usuario, HttpServletResponse response) throws IOException {
+    public void registro(@CookieValue(AuthCookie.NAME) String token, Empresa empresa, HttpServletResponse response) throws IOException {
         String role = JWT.decode(token).getClaim(CustomClaims.USER_ROLE.getValue()).asString();
         if (!role.equals(Role.ADMIN.getValue())) {
             response.setStatus(403); // Forbidden
             return;
         }
-        databaseService.createUser(usuario);
-        response.sendRedirect("/login");
+        databaseService.createEmpresa(empresa);
+        response.sendRedirect("/" +
+                "");
     }
 
     @PostMapping("/registro/maquina")
@@ -62,6 +63,7 @@ public class MainController {
         databaseService.createMaquina(maquina);
         response.sendRedirect("/maquinas");
     }
+
     @PostMapping("/stock/{idMaquina}/add")
     public void createStock(@PathVariable("idMaquina") Long idMaquina,
                          @RequestBody Long idProducto,

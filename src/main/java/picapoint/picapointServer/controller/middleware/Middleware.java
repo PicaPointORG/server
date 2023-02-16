@@ -40,10 +40,6 @@ public class Middleware {
             response.sendRedirect("/login");
             return false;
         }
-//        String username = token.getClaim(CustomClaims.USER_NAME.getValue()).asString();
-//        String role = token.getClaim(CustomClaims.USER_ROLE.getValue()).asString();
-//        String path = request.getRequestURI();
-//        System.out.println("User: " + username + " -- Role: " + role + " -- Path: " + path);
         return true;
     }
 }

@@ -8,6 +8,7 @@ import picapoint.picapointServer.service.DatabaseService;
 import picapoint.picapointServer.util.AuthCookie;
 import picapoint.picapointServer.util.CustomClaims;
 import picapoint.picapointServer.util.JWTHandler;
+import picapoint.picapointServer.util.Role;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -38,6 +39,29 @@ public class MainController {
         response.sendRedirect("/");
     }
 
+    @PostMapping("/registro/empresa")
+    public void registro(@CookieValue(AuthCookie.NAME) String token, Usuario usuario, HttpServletResponse response) throws IOException {
+        String role = JWT.decode(token).getClaim(CustomClaims.USER_ROLE.getValue()).asString();
+        if (!role.equals(Role.ADMIN.getValue())) {
+            response.setStatus(403); // Forbidden
+            return;
+        }
+        databaseService.createUser(usuario);
+        response.sendRedirect("/login");
+    }
+
+    @PostMapping("/registro/maquina")
+    public void register(@CookieValue(AuthCookie.NAME) String token, Maquina maquina, HttpServletResponse response) throws IOException {
+        String role = JWT.decode(token).getClaim(CustomClaims.USER_ROLE.getValue()).asString();
+        if (!role.equals(Role.ADMIN.getValue())) {
+            response.setStatus(403); // Forbidden
+            return;
+        }
+        Empresa empresa = databaseService.getEmpresa(maquina.getEmpresa().getCif());
+        maquina.setEmpresa(empresa);
+        databaseService.createMaquina(maquina);
+        response.sendRedirect("/maquinas");
+    }
     @PostMapping("/stock/{idMaquina}/add")
     public void createStock(@PathVariable("idMaquina") Long idMaquina,
                          @RequestBody Long idProducto,

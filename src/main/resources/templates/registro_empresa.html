@@ -1,0 +1,46 @@
+<!-- Define que el documento esta bajo el estandar de HTML 5 -->
+<!doctype html>
+
+<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title> Formulario de Acceso </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    Link hacia el archivo de estilos css-->
+    <link rel="stylesheet" href="/css/registro.css">
+</head>
+<body onload="consultarError()">
+<div id="contenedor">
+    <div id="central">
+        <div id="registro">
+            <div class="titulo">
+                Registro Empresa
+            </div>
+            <form th:method="POST" th:object="${empresa}" th:action="@{/registro/empresa}">
+                <label>CIF</label>
+                <input type="text" th:field="*{cif}" placeholder="CIF" required name="CIF" id="CIF">
+                <label>Nombre</label>
+                <input id = "Nombre" type="text" th:field="*{nombre}" placeholder="Nombre" required name="Nombre">
+                <label>Telefono</label>
+                <input id = "Telefono" type="text" th:field="*{telefono}" placeholder="Telefono" required name="Telefono">
+                <label>Email</label>
+                <input id = "Email" type="text" th:field="*{email}" placeholder="Email" required name="Email">
+                <label>Direccion</label>
+                <input id = "Direccion" type="text" th:field="*{direccion}" placeholder="Direccion" required name="Direccion">
+                <label>Codigo Postal</label>
+                <input id = "Codigo_postal" type="text" th:field="*{codigoPostal}" placeholder="Codigo postal" required name="Codigo_postal">
+
+                <button title="Ingresar" name="Ingresar" onclick="log()">Registrar</button>
+            </form>
+            <div class="pie-form">
+                <a href="#">Cancelar Registro</a>
+            </div>
+            <p id="error"></p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

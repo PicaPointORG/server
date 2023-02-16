@@ -38,13 +38,13 @@
     </div>
     <div class="maquinas">
         <div th:each="maquina:${maquinas}" class="principal">
-            <h3 th:text="${maquina.id}"></h3>
-            <h2 th:text="${maquina.ubicacion}"></h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor quis orci ut laoreet. Nullam
-                ac metus tempor, scelerisque massa nec, porta neque. Aenean lobortis tristique luctus. Aliquam eget leo
-                tempor, congue neque in, auctor lacus. In interdum facilisis nunc quis venenatis
-            </p>
+            <div>
+                <h2><a th:text="${maquina.ubicacion}"></a></h2>
+
+                <div class="listaProductosMaquinas" th:each="producto:${maquina.getMaquinaHasProductos()}">
+                    <p th:text="${producto.producto.nombre + ' ' + producto.stock}"></p>
+                </div>
+            </div>
             <div class="minimap">
                 <iframe class="mapa"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3140.563671131609!2d-0.9497369999999999!3d38.08054149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd639918a0a9524f%3A0x699a8c2ae099b175!2sC.%20Oriolanos%20Ausentes%2C%204A%2C%2003300%20Orihuela%2C%20Alicante!5e0!3m2!1ses!2ses!4v1653732236919!5m2!1ses!2ses"

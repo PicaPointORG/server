@@ -1,10 +1,7 @@
 package picapoint.picapointServer.service;
 
 import org.springframework.stereotype.Service;
-import picapoint.picapointServer.entities.Maquina;
-import picapoint.picapointServer.entities.MaquinaHasProducto;
-import picapoint.picapointServer.entities.Producto;
-import picapoint.picapointServer.entities.Usuario;
+import picapoint.picapointServer.entities.*;
 import picapoint.picapointServer.repository.*;
 
 import java.util.List;
@@ -70,9 +67,25 @@ public class DatabaseService {
         return productoRepository.findById(id).orElse(null);
     }
 
+    public List<Empresa> getEmpresas() {
+        return empresaRepository.findAll();
+    }
+
+    public Empresa getEmpresa(String cif) {
+        return empresaRepository.findById(cif).orElse(null);
+    }
+
     // ----------------------------------------- POST -----------------------------------------
     public void createProducto(Producto producto) {
         productoRepository.save(producto);
+    }
+
+    public void createUser(Usuario usuario) {
+        usuarioRepository.save(usuario);
+    }
+
+    public void createMaquina(Maquina maquina) {
+        maquinaRepository.save(maquina);
     }
 
     // ----------------------------------------- PUT -----------------------------------------

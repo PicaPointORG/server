@@ -41,16 +41,27 @@ public class ViewController {
         return "login";
     }
 
-    @GetMapping("/register")
-    public String register(Model model) {
+    @GetMapping("/registro/empresa")
+    public String registroUsuario(Model model) {
         model.addAttribute("empresa", new Empresa());
-        return "register";
+        return "registro_empresa";
+    }
+
+    @GetMapping("/registro/maquina")
+    public String registroMaquina(Model model) {
+        List<Empresa> empresas = databaseService.getEmpresas();
+        Maquina maquina = new Maquina();
+        maquina.setEmpresa(new Empresa());
+        model.addAttribute("maquina", maquina );
+        model.addAttribute("empresas", empresas);
+        return "registro_maquina";
     }
 
     @GetMapping("/maquinas")
     public String maquinas(@CookieValue(AuthCookie.NAME) String token, Model model) {
         String cif = JWT.decode(token).getClaim(CustomClaims.USER_CIF.getValue()).asString();
         List<Maquina> maquinas = databaseService.getMaquinas(cif);
+        List<Producto> productos = databaseService.getProductos(cif);
         model.addAttribute("maquinas", maquinas);
         return "maquinas";
     }
@@ -77,17 +88,16 @@ public class ViewController {
     public String productos(@CookieValue(AuthCookie.NAME) String token, Model model) {
         String cif = JWT.decode(token).getClaim(CustomClaims.USER_CIF.getValue()).asString();
         List<Producto> productos = databaseService.getProductos(cif);
-        model.addAttribute("productos", productos);
-        Map<Long, Integer> totalStockDeCadaProducto = new HashMap<>();
+        Map<Producto, Integer> totalStockDeCadaProducto = new HashMap<>();
         for (Producto producto : productos) {
             Integer productStock = producto.getMaquinaHasProductos().stream().reduce(
                     0,
                     (a, b) -> a + b.getStock(),
                     Integer::sum
             );
-            totalStockDeCadaProducto.put(producto.getId(), productStock);
+            totalStockDeCadaProducto.put(producto, productStock);
         }
-        model.addAttribute("stock", totalStockDeCadaProducto);
+        model.addAttribute("productos", totalStockDeCadaProducto);
         return "productos";
     }
 

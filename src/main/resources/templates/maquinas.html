@@ -39,7 +39,7 @@
     <div class="maquinas">
         <div th:each="maquina:${maquinas}" class="principal">
             <div>
-                <h2><a th:text="${maquina.ubicacion}"></a></h2>
+                <h2><a th:text="${maquina.ubicacion}" th:href="@{//maquinas/{id}(id=${maquina.id})}"></a></h2>
 
                 <div class="listaProductosMaquinas" th:each="producto:${maquina.getMaquinaHasProductos()}">
                     <p th:text="${producto.producto.nombre + ' ' + producto.stock}"></p>

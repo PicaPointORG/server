@@ -81,7 +81,7 @@ public class ViewController {
         List<Maquina> maquinas = new ArrayList<>();
         maquinas.add(maquina);
         model.addAttribute("maquinas", maquinas);
-        return "maquinas";
+        return "maquinaVista";
     }
 
     @GetMapping("/productos")

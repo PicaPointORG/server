@@ -77,10 +77,9 @@ public class ViewController {
             response.setStatus(403); // Forbidden
             return null;
         }
-        List<Maquina> maquinas = new ArrayList<>();
-        maquinas.add(maquina);
-        model.addAttribute("maquinas", maquinas);
-        return "maquinas";
+
+        model.addAttribute("maquina", maquina);
+        return "maquinaVista";
     }
 
     @GetMapping("/productos")

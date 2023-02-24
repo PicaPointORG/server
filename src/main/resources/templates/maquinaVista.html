@@ -11,12 +11,12 @@
 
 </head>
 <body>
-    <div class="cuerpo" th:action="@{}" th:object="${maquinas}">
-        <h1 th:text="">Calle= c/ de la maquina</h1>
+    <div class="cuerpo" th:object="${maquina}">
+        <h1 th:text="${'Calle = ' + maquina.ubicacion}">c/ de la maquina</h1>
         <div class="contenido">
             <div class="info">
-                <h2>id = 2</h2>
-                <h2>empresa= tumbalacasamami</h2>
+                <h2 th:text="${'MAC = ' + maquina.mac}"></h2>
+                <h2 th:text="${'empresa = ' + maquina.empresa.nombre}"></h2>
             </div>
             
             <div class="mapa">
@@ -37,12 +37,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="">
-                <td th:text=""></td>
-                <td th:text=""></td>
+
+            <tr th:each="producto:${maquina.maquinaHasProductos}">
+                <td th:text="${producto.producto.nombre}"></td>
+                <td th:text="${producto.stock}"></td>
 
                 <td>
-                    <a class="reponerbtn" th:href="@{}">Reponer</a>
+                    <a class="reponerbtn" >Reponer</a>
                 </td>
             </tr>
             </tbody>

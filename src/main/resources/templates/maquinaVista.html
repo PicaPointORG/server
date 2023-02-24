@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/maquinaVista.css}">
     
-    <link rel="icon" href="/source/icon.jpg" type="image/icon">
+    <link rel="icon" href="source/icon.jpg" type="image/icon">
     <title>Maquina</title>
 
 </head>
 <body>
-    <div class="cuerpo">
-        <h1>Calle= c/ de la maquina</h1>
+    <div class="cuerpo" th:action="@{}" th:object="${maquinas}">
+        <h1 th:text="">Calle= c/ de la maquina</h1>
         <div class="contenido">
             <div class="info">
                 <h2>id = 2</h2>

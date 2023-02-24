@@ -61,7 +61,6 @@ public class ViewController {
     public String maquinas(@CookieValue(AuthCookie.NAME) String token, Model model) {
         String cif = JWT.decode(token).getClaim(CustomClaims.USER_CIF.getValue()).asString();
         List<Maquina> maquinas = databaseService.getMaquinas(cif);
-        List<Producto> productos = databaseService.getProductos(cif);
         model.addAttribute("maquinas", maquinas);
         return "maquinas";
     }
@@ -113,18 +112,15 @@ public class ViewController {
             response.setStatus(403); // Forbidden
             return null;
         }
-        List<Producto> productos = new ArrayList<>();
-        productos.add(producto);
-        model.addAttribute("productos", productos);
-        Map<Long, Integer> totalStockDeCadaProducto = new HashMap<>();
+        Map<Producto, Integer> totalStockDeCadaProducto = new HashMap<>();
         Integer productStock = producto.getMaquinaHasProductos().stream().reduce(
                 0,
                 (a, b) -> a + b.getStock(),
                 Integer::sum
         );
-        totalStockDeCadaProducto.put(producto.getId(), productStock);
-        model.addAttribute("stock", totalStockDeCadaProducto);
-        return "productos";
+        totalStockDeCadaProducto.put(producto, productStock);
+        model.addAttribute("producto", totalStockDeCadaProducto);
+        return null;
     }
 
     @GetMapping("/contacto")

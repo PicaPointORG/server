@@ -40,13 +40,11 @@
             </p>
         </div>
     </article>
-    <article>
-        <a th:href="@{/producto/add}" class="boton">Nuevo Producto</a>
-    </article>
-    <article th:each="key : ${productos.keySet()}" class="principal">
-        <p th:text="${key.descripcion}"></p>
-        <p th:inline="text">precio: [[${key.precio}]] </p>
-        <p th:inline="text">stock: [[${productos.get(key)}]] </p>
+    <article th:each="producto : ${productos.keySet()}" class="principal">
+        <h2 th:text="${producto.id}"></h2>
+        <p th:text="${producto.descripcion}"></p>
+        <p th:inline="text">precio: [[${producto.precio}]] </p>
+        <p th:inline="text">stock: [[${productos.get(producto)}]] </p>
     </article>
 </section>
 <footer>

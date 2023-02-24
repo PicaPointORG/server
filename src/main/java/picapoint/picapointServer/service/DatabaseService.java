@@ -84,6 +84,10 @@ public class DatabaseService {
         usuarioRepository.save(usuario);
     }
 
+    public void createEmpresa(Empresa empresa) {
+        empresaRepository.save(empresa);
+    }
+
     public void createMaquina(Maquina maquina) {
         maquinaRepository.save(maquina);
     }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,6 +37,7 @@
             </tr>
             </thead>
             <tbody>
+
             <tr th:each="producto:${maquina.maquinaHasProductos}">
                 <td th:text="${producto.producto.nombre}"></td>
                 <td th:text="${producto.stock}"></td>

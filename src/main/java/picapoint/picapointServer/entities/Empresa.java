@@ -20,7 +20,6 @@ import java.util.List;
 @Table(name = "empresa")
 public class Empresa {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cif", nullable = false, length = 9)
     private String cif;
 

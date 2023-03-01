@@ -86,6 +86,14 @@ public class ViewController {
         List<Maquina> maquinas = databaseService.getMaquinas(cif);
 
         model.addAttribute("maquinas", maquinas);
+        return "maquinas";
+    }
+    @GetMapping("/listado_maquinas")
+    public String listado_maquinas(@CookieValue(AuthCookie.NAME) String token, Model model) {
+
+        List<Maquina> maquinas = databaseService.getAllMaquinas();
+
+        model.addAttribute("maquinas", maquinas);
         return "listado_maquinas";
     }
 

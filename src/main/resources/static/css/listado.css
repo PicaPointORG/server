@@ -1,0 +1,358 @@
+body {
+  background-color: #dbdada;
+  margin: 0%;
+}
+
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+p{
+  text-align: center;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #2cbadd;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav .desp {
+  display: none;
+}
+
+/* Dropdown*/
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  padding: 20px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #5dbcd4;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+
+
+
+
+/* Funciones de posar cursor y seleccionar*/
+
+.active {
+  background-color: #289bb8;
+  color: white;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #289bb8;
+  text-decoration: none;
+  color: black;
+
+}
+
+.dropdown-content a:hover {
+  background-color: #3ca3bd;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a.selected {
+  background-color: #289bb8;
+  text-decoration: none;
+  color: white;
+}
+
+/* Funciones del navbar para utilizar en la web movil*/
+
+@media screen and (max-width: 650px) {
+
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+
+  .topnav a.desp {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive {position: relative;}
+
+  .topnav.responsive .desp {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .inNav{
+    background-color: #4daec7;
+
+  }
+
+  .dropdown{
+    background-color: #4daec7;
+
+  }
+
+  .dropdown-content a:hover {
+    background-color: #3ca3bd;
+    text-decoration: none;
+    color: black;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #5dbcd4;
+    min-width: 160px;
+    z-index: 1;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Utilidades de icono*/
+
+a.icon{
+  padding-bottom: 3px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 10px;
+
+}
+img.icon{
+  height: 50px;
+  width: 50px;
+  }
+
+
+
+
+/*estructura main*/
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 40px;
+
+
+}
+h1{
+  text-align: center;
+  text-decoration: underline;
+}
+
+.resumen {
+  max-width: 1100px;
+  width: auto;
+  height: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-right: 40px;
+  margin-left: 40px;
+
+
+}
+div > h2{
+  margin-top: 70px;
+  margin-bottom: 70px;
+ }
+
+.contResumen{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+article {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.maquinas{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  margin-bottom: 50px;
+}
+.principal > div{
+  margin-left: 30px;
+}
+.principal {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-width: 400px;
+  max-width: 800px;
+  width: auto;
+  height: auto;
+  margin-right: 40px;
+  margin-left: 40px;
+  margin-bottom: 40px;
+}
+
+.principal p {
+
+  width: auto;
+  height: auto;
+}
+
+.listaProductosMaquinas{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  min-width: 400px;
+  max-width: 600px;
+
+}
+.minimap {
+  background-color: blanchedalmond;
+  width: 300px;
+  height: 300px;
+
+  padding-top: 10px;
+  padding-left: 10px;
+
+}
+.foto {
+  background-color: blanchedalmond;
+  width: 300px;
+  height: 300px;
+
+  padding-top: 10px;
+  padding-left: 10px;
+
+}
+
+.foto img{
+  width: 290px;
+  height: 290px;
+}
+
+.deletebtn{
+  background-color: red;
+  color: white;
+}
+.deletebtn:hover{
+  background-color: rgb(175, 24, 24);
+  color: white;
+}
+
+
+/* footer */
+
+
+
+footer {
+  display: flex;
+  position:fixed;
+  justify-content:flex-end;
+  width: 100%;
+  bottom: 0px;
+  height: 100px;
+
+}
+
+footer a{
+  color: black;
+  margin-right: 20px;
+}
+
+footer a:hover{
+  color: white;
+}
+
+
+/* formulario que no creo que vayamos a utilizar*/
+
+
+.formulario{
+  display: grid;
+  grid-template-columns: repeat(5 , 1fr) ;
+  grid-template-rows: 80px 1fr 1fr 1fr 80px;
+}
+
+.formulario h1{
+  text-align: center;
+}
+
+.cuerpo{
+  grid-column: 2 / 5;
+  grid-row: 2 / 5;
+  background-color: white;
+  border-radius: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  height: 100%;
+
+}
+
+.cuerpo p{
+  margin-left: 70px;
+  margin-right: 70px;
+
+
+}
+
+.form1{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table{
+    align=center
+}

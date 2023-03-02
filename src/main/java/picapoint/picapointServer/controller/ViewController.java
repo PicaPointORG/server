@@ -35,6 +35,11 @@ public class ViewController {
         return "index";
     }
 
+    @GetMapping("/admin")
+    public String index_admin() {
+        return "index_admin";
+    }
+
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("login", new Login());
@@ -57,12 +62,39 @@ public class ViewController {
         return "registro_maquina";
     }
 
+    @GetMapping("/empresas")
+    public String empresa(@CookieValue(AuthCookie.NAME) String token, Model model) {
+        List<Empresa> empresa = databaseService.getEmpresas();
+        model.addAttribute("empresas", empresa);
+        return "listado_empresas";
+    }
+
     @GetMapping("/maquinas")
     public String maquinas(@CookieValue(AuthCookie.NAME) String token, Model model) {
+        /*List<Empresa> empresas = databaseService.getEmpresas();
+        List<Maquina> maquinas_empresa;
+        ArrayList<Maquina> maquinas = new ArrayList<>();
+        String cif;
+        for(int i=0; i<empresas.size();i++){
+            cif = empresas.get(i).getCif();
+            maquinas_empresa = databaseService.getMaquinas(cif);
+            for(int j=0; j<maquinas_empresa.size();i++){
+                maquinas.add(maquinas_empresa.get(j));
+            }
+        }*/
         String cif = JWT.decode(token).getClaim(CustomClaims.USER_CIF.getValue()).asString();
         List<Maquina> maquinas = databaseService.getMaquinas(cif);
+
         model.addAttribute("maquinas", maquinas);
         return "maquinas";
+    }
+    @GetMapping("/listado_maquinas")
+    public String listado_maquinas(@CookieValue(AuthCookie.NAME) String token, Model model) {
+
+        List<Maquina> maquinas = databaseService.getAllMaquinas();
+
+        model.addAttribute("maquinas", maquinas);
+        return "listado_maquinas";
     }
 
     @GetMapping("/maquinas/{id}")

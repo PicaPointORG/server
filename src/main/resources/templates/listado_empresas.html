@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicaPoint Máquinas</title>
+    <link rel="stylesheet" th:href="@{/css/listado.css}">
+    <link rel="icon" th:href="@{/source/icon.jpg}" type="image/icon">
+</head>
+<body>
+<nav>
+    <div class="topnav" id="myTopnav">
+        <a th:href="@{/admin}" class=" icon"><img class="icon" th:src="@{/source/icon.jpg}" alt="icono"></a>
+        <a th:href="@{/registro/empresa}" class="active">Registro Empresas</a>
+        <a th:href="@{/registro/maquina}" class="inNav">Registro Máquinas</a>
+        <div class="dropdown">
+            <button class="dropbtn">Otros</button>
+            <div class="dropdown-content">
+                <a th:href="@{/empresas}">Listado Empresas</a>
+                <a th:href="@{/listado_maquinas}">Listado Maquinas</a>
+            </div>
+        </div>
+        <a href="javascript:void(0);" style="font-size:15px;" class="desp" onclick="myFunction()">&#9776;</a>
+    </div>
+</nav>
+<section>
+    <h1>Página de Listado de Empresas</h1>
+    <div class="contResumen">
+        <div class="resumen">
+            <p>
+                Esta página muestra todas las empresas que constan en nuestra base de datos,</p>
+            <p>
+                junto a la información necesaria para su registro
+            </p>
+
+
+    <div class="empresas" align="center">
+        <table style="width:90%" border="1"
+                       class="table table-striped table-responsive-md">
+            <thread>
+                <tr>
+                    <th>Empresa</th>
+                    <th>CIF</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>Código Postal</th>
+                </tr>
+            </thread>
+
+            <tbody>
+            <tr th:each="empresa:${empresas}">
+                <td th:text ="${empresa.nombre}"/>
+                <td th:text ="${empresa.cif}"/>
+                <td th:text ="${empresa.telefono}"/>
+                <td th:text = "${empresa.email}"/>
+                <td th:text = "${empresa.direccion}"/>
+                <td th:text = "${empresa.codigoPostal}"/>
+            </tr>
+            </tbody>
+                </table>
+    </div>
+    </div>
+        </div>
+</section>
+<footer>
+    <a href="#"><img th:src="@{/source/flecha-hacia-arriba.png}" alt="arriba" style="width: 70px; height: 70px;"></a>
+</footer>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+</body>
+</html>

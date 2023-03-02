@@ -43,6 +43,10 @@ public class DatabaseService {
         return maquinaRepository.findByEmpresaCif(cif);
     }
 
+    public List<Maquina> getAllMaquinas() {
+        return maquinaRepository.findAll();
+    }
+
     /**
      * Obtiene una máquina dado su identificador único.
      *
@@ -109,4 +113,5 @@ public class DatabaseService {
     public void deleteProducto(Long id) {
         productoRepository.deleteById(id);
     }
+
 }
